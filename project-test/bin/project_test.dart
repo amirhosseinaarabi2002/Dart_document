@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 void main(List<String> arguments) {
   print('Hello world!'); //everything should be in main component for showing
 
@@ -302,4 +304,95 @@ void main(List<String> arguments) {
   names.add("reza");
 
   print(names);
+
+  Set<int> numbers = Set();
+
+  numbers.addAll({10, 20, 30, 30, 30});
+
+  print(numbers);
+
+  // HashSet vs LinkedHashSet=normal set
+  List lst = [1, 30, 10, 1, 2, 50];
+
+  Set hashSet = HashSet();
+  Set linkedHashSet = LinkedHashSet();
+
+  for (var item in lst) {
+    hashSet.add(item);
+    linkedHashSet.add(item);
+  }
+
+  print("hashSet ...");
+  hashSet.forEach((f) => print(f));
+
+  print("linkedHashSet ...");
+  linkedHashSet.forEach((e) => print(e));
+
+  // properties for sets
+  Set numberSet = Set();
+  numberSet.add(45);
+  numberSet.add(55);
+  numberSet.add(65);
+
+  print(numberSet.first);
+  print(numberSet.isEmpty);
+  print(numberSet.isNotEmpty);
+  print(numberSet.last);
+  print(numberSet.length);
+  // print(numberSet.single);
+
+
+  // set methods
+  numberSet.addAll([1, 2, 3]);
+  print(numberSet.contains(24));
+  print(numberSet.containsAll([[24, 25, 26]]));
+
+  Set otherSet = {1, 2, 3, 4, 99};
+
+  print(numberSet.difference(otherSet));
+  print(numberSet.intersection(otherSet));
+  print(numberSet.lookup(1)); // it returns that item if there is in set otherwise it returns null
+  print(numberSet.remove(2));
+  print(numberSet);
+
+
+  numberSet.clear(); // remove everything
+
+  // convert list to set
+
+  List<int> convertToSet = [1, 2, 3, 4];
+
+  print(convertToSet);
+
+  Set convertedList = convertToSet.toSet();
+
+  print(convertedList);
+
+
+  // map 
+  var data = {"name": "amir", "age": 18};
+  Map words = {1: "user", 2: "pass", 3: "email"};
+  Map<int, String> word1 = {1: "user", 2: "pass", 3: "email"};
+
+  word1[4] = "instagram";
+
+  print(word1);
+
+  Map<int, String> word3 = Map();
+  print(word3);
+
+  Map<int?, String?>? word4;
+  print(word4);
+
+  // map properties
+  Map<int, String> word2 = <int, String>{1: "user", 2: "pass", 3: "email"};
+
+  print(word2.isEmpty);
+  print(word2.isNotEmpty);
+  print(word2.keys);
+  print(word2.values);
+  print(word2.length);
+
+
+
 }
