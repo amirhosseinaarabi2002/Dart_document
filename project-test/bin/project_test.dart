@@ -246,13 +246,15 @@ void main(List<String> arguments) {
 
   print(lst21);
 
-  List <String> lst22 = ["ali", "amir", "pouya"];
-  Map <int, String> map1 = lst22.asMap(); // it make keys for our value in the list
+  List<String> lst22 = ["ali", "amir", "pouya"];
+  Map<int, String> map1 =
+      lst22.asMap(); // it make keys for our value in the list
 
   print(map1);
 
   List mixList = ["a", 1, "b", 2];
-  var mixi = mixList.whereType<String>(); // it shows the values with types that we want 
+  var mixi = mixList
+      .whereType<String>(); // it shows the values with types that we want
 
   print(mixi);
 
@@ -264,38 +266,39 @@ void main(List<String> arguments) {
   List<int> lst24 = [1, 2, 3, 4, 5, 6];
   print(lst24.firstWhere((i) => i > 3));
   print(lst24.lastWhere((i) => i > 3));
-  print(lst24.singleWhere((i) => i == 3)); // if we had more than one 3 in the list it returned error
+  print(lst24.singleWhere((i) =>
+      i == 3)); // if we had more than one 3 in the list it returned error
 
   var x = lst24.fold(10, (i, j) => i + j); // 10 + 1 + 2 + 3 + ... = 31
   var xy = lst24.reduce((i, j) => i + j); // 1 + 2 + 3 + ... = 31
   print(x);
   print(xy);
 
-  List <String> sportList = ["football", "soccer"];
-  print(sportList.followedBy(["tennis", "swim"]).toList()); // add new items to end of the list
+  List<String> sportList = ["football", "soccer"];
+  print(sportList.followedBy(
+      ["tennis", "swim"]).toList()); // add new items to end of the list
 
   print(sportList.any((i) => i.contains("soccer"))); // true
-  
+
   print(sportList.every((i) => i.startsWith("c"))); // false
 
   print(sportList.take(1)); //take one item from my list and show it
 
-  print(sportList.fold<String>("golf", (i, j) => i + j)); // concat all of the string items in the list
-
+  print(sportList.fold<String>(
+      "golf", (i, j) => i + j)); // concat all of the string items in the list
 
   // list properties
   List lst20 = [];
   lst20.add(1);
   lst20.add(2);
 
-  print(lst20.first); // index[0] ind list 
+  print(lst20.first); // index[0] ind list
   print(lst20.isEmpty);
   print(lst20.isNotEmpty);
   print(lst20.length);
   print(lst20.last);
   print(lst20.reversed);
   // print(lst20.single); //  if it had only 1 element otherwise it returns error
-
 
   // Sets
   // 2 diffrences with list : 1. we use {} for sets 2. in set , set removes repeated items and count them only one time
@@ -341,20 +344,21 @@ void main(List<String> arguments) {
   print(numberSet.length);
   // print(numberSet.single);
 
-
   // set methods
   numberSet.addAll([1, 2, 3]);
   print(numberSet.contains(24));
-  print(numberSet.containsAll([[24, 25, 26]]));
+  print(numberSet.containsAll([
+    [24, 25, 26]
+  ]));
 
   Set otherSet = {1, 2, 3, 4, 99};
 
   print(numberSet.difference(otherSet));
   print(numberSet.intersection(otherSet));
-  print(numberSet.lookup(1)); // it returns that item if there is in set otherwise it returns null
+  print(numberSet.lookup(
+      1)); // it returns that item if there is in set otherwise it returns null
   print(numberSet.remove(2));
   print(numberSet);
-
 
   numberSet.clear(); // remove everything
 
@@ -368,8 +372,7 @@ void main(List<String> arguments) {
 
   print(convertedList);
 
-
-  // map 
+  // map
   var data = {"name": "amir", "age": 18};
   Map words = {1: "user", 2: "pass", 3: "email"};
   Map<int, String> word1 = {1: "user", 2: "pass", 3: "email"};
@@ -393,6 +396,9 @@ void main(List<String> arguments) {
   print(word2.values);
   print(word2.length);
 
-
-
+  // map method
+  print(word2.containsKey(1));
+  print(word2.containsValue("value"));
+  print(word2.remove(1));
+  word2.clear();
 }
