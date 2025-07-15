@@ -400,5 +400,154 @@ void main(List<String> arguments) {
   print(word2.containsKey(1));
   print(word2.containsValue("value"));
   print(word2.remove(1));
+  word2.removeWhere((key, value) => value.startsWith("p"));
+  print(word2);
   word2.clear();
+
+  Map m1 = {1: "Apple", 2: "Orange"};
+  Map m2 = {3: "Banana"};
+  Map m3 = {4: "Mango"};
+
+  Map fruits1 = {}
+    ..addAll(m1)
+    ..addAll(m2)
+    ..addAll(m3);
+  print(fruits1);
+
+  var fruits2 = Map.from(m1)
+    ..addAll(m2)
+    ..addAll(m3);
+  print(fruits2);
+
+  var fruits3 = {...m1, ...m2, ...m3};
+  print(fruits3);
+
+  Map m4 = {1: "A", 2: "B"};
+  // m4[3] = "C";
+
+  m4.putIfAbsent(3, () => "C");
+  print(m4);
+
+  List<String> letters = ["a", "b", "c"];
+  List<int> nums = [1, 2, 3];
+
+  Map Data = Map<int, String>.fromIterables(nums, letters);
+  print(Data);
+
+  // constants
+  final String name = "amirhossein";
+  // name = "ali";
+
+  final String name2;
+  name2 = getNameFromeDB();
+
+  print(name2);
+  // name2 = "amir";
+
+  const String birthday = "2002/07/08";
+  print(birthday);
+
+  final DateTime date = DateTime.now();
+  print(date);
+
+  // conditions
+  int alpha = 4;
+  if (alpha > 8) {
+    print("number is bigger than 8");
+  } else if (alpha < 8) {
+    print("number is smaller than 8");
+  } else {
+    print("number is $alpha");
+  }
+
+  // || => or , && => and
+  String city = "iran";
+  String abbr = "ir";
+
+  if (city == "iran" && abbr == "ir") {
+    print("matched");
+  } else {
+    print("not matched");
+  }
+
+  // ternary conditions
+  int beta = 5;
+  print((beta < 3) ? "true" : "false");
+
+  // switch case
+  String grade = 'D';
+
+  switch (grade) {
+    case "A":
+      {
+        print("very good");
+      }
+      break;
+    case "B":
+      {
+        print("good");
+      }
+      break;
+    case "C":
+      {
+        print("not good");
+      }
+      break;
+    default:
+      {
+        print("💀");
+      }
+      break;
+  }
+
+  // for loop
+  for (int i = 1; i < 11; i++) {
+    if (i % 2 == 0) {
+      continue;
+    }
+    print(i);
+  }
+
+  int factorial = 1;
+  for (int i = 20; i >= 1; i--) {
+    factorial *= i;
+  }
+  print(factorial);
+
+  // for in loop
+  List myList = [1, 2, 3, 4, 5, 6];
+  for (int item in myList) {
+    print(item * item);
+  }
+
+  // foreach
+  myList.forEach((e) => print(e));
+
+  // while loop
+  int num10 = 1;
+  while (num10 <= 10) {
+    if (num10 % 5 == 0) {
+      print('$num10 % 5 == 0');
+      break;
+    }
+    print(num10);
+    num10++;
+  }
+
+  // do while loop
+  int num11 = 10;
+  do {
+    print(num11);
+
+    num11--;
+  } while (num11 >= 0);
+}
+
+String getNameFromeDB() {
+  return "sara";
+}
+
+class a {
+  late final String name;
+  static const String name2 = "alireza";
 }
