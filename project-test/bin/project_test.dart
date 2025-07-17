@@ -567,9 +567,37 @@ void main(List<String> arguments) {
 
   print(sum(2, 5));
 
-  List lst25 = [1, 2, 3, 4]; // lamda functions
+  List lst25 = [1, 2, 3, 4, 5]; // lamda functions
   lst25.forEach(print);
+
+  // type def
+  dataList data1 = [1, 2, 3.2];
+  data1.add(5);
+  print(data1.length);
+  print(data1.runtimeType);
+
+  mapType map2 = {"name": "ali", "id": 13};
+  print(map2);
+
+  numberList<int> lst26 = [1, 2, 3, 4];
+
+  Greet hi;
+  hi = sayHello;
+  print(hi("amirhossein"));
 }
+
+String sayHello(String name) {
+  return "welcome $name";
+}
+
+typedef Greet = String Function(String name);
+
+typedef numberList<T> = List<T>; // generic
+
+typedef mapType = Map<String, dynamic>;
+
+// ignore: camel_case_types
+typedef dataList = List<num>;
 
 sum(int a, int b) => a + b;
 
