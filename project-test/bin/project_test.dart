@@ -541,6 +541,73 @@ void main(List<String> arguments) {
 
     num11--;
   } while (num11 >= 0);
+
+  outerLoop:
+  for (int i = 1; i <= 3; i++) {
+    innerLoop:
+    for (int j = 1; j <= 3; j++) {
+      print("($i, $j)");
+      if (i == 2 && j == 2) {
+        break outerLoop;
+      }
+    }
+  }
+
+  // functions
+  String func1 = printMyName("ali", 23);
+  print(func1.toLowerCase());
+
+  printMyInfo(
+      name: "amir",
+      last: "aarabi",
+      age: 23,
+      email: "amirhosseinaarabi2002@gmail.com");
+
+  printNumbers([4, 5], doubleNum);
+
+  print(sum(2, 5));
+
+  List lst25 = [1, 2, 3, 4]; // lamda functions
+  lst25.forEach(print);
+}
+
+sum(int a, int b) => a + b;
+
+doubleNum(n) {
+  return 2 * n;
+}
+
+void printNumbers(List values, Function func) {
+  for (int v in values) {
+    int r = func(v);
+
+    print("input: $v, output: $r");
+  }
+}
+
+printMyInfo(
+    {required String name, required String last, int? age, String? email}) {
+  if (email == null && age == null) {
+    print("you are $name, your lastName is $last");
+  } else {
+    print(
+        "you are $name, your lastNmae is $last, your age is $age, your email is $email"); // in return we have access to the value inside of function
+  }
+}
+
+printMyName(String name, int age, [String? email]) {
+  // email is optional and should be in the end in amoung function params
+  // print("amir");
+  if (email == null) {
+    return "you are $name, your age is $age";
+  } else {
+    return "you are $name, your age is $age, your email is $email"; // in return we have access to the value inside of function
+  }
+}
+
+String? func2() {
+  // null safety for functions
+  print("func2");
 }
 
 String getNameFromeDB() {
