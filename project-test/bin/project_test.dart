@@ -584,6 +584,133 @@ void main(List<String> arguments) {
   Greet hi;
   hi = sayHello;
   print(hi("amirhossein"));
+
+  // object oriented programming => oop
+  // classes
+
+  people pl1 = people(age: 23, name: "amir");
+  pl1.name = "amir";
+  pl1.age = 23;
+  people pl2 = people(age: 23, name: "mina");
+  // pl2.name = "mina";
+  // pl2.age = 23;
+  print(pl1.name);
+  print(pl2.age);
+
+  pl2.sleep();
+  pl1.work();
+
+  people pl3 = people.myCustomConstructor(
+      age: 23, name: "amir", phoneNumber: 09100023513);
+  print(pl3);
+
+  Student st1 = Student(32, "amin");
+  print(st1);
+
+  // st1.name = "mahsa";
+
+  Programmer pr1 =
+      Programmer(name: "amir", age: 23, last: "aarabi", pay: "20,000,000");
+
+  print(pr1.name);
+  pr1.showMail();
+  pr1.agePromotion(2);
+  print(pr1.age);
+
+  print(Programmer.numberOfDev);
+  print(Programmer.helloMethod());
+  // Programmer.showUserMail(pr1);
+
+  fcb()
+  ..testMethod1()
+  ..testMethod2(); // cascading operators methods
+
+  
+}
+
+class fcb{
+  void testMethod1(){
+    print("test1");
+  }
+  void testMethod2(){
+    print("test2");
+  }
+}
+
+class Programmer {
+  final String name, last, pay;
+  double age;
+  static int numberOfDev = 0;
+
+  Programmer(
+      {required this.name,
+      required this.age,
+      required this.last,
+      required this.pay}) {
+    numberOfDev += 1;
+  }
+
+  void showMail() {
+    print("$last@gmail.com");
+  }
+
+  double agePromotion(double value) {
+    return age = age * value;
+  }
+
+  static String helloMethod(){
+    return "hello method";
+  }
+
+  // static void showUserMail(userName){
+  //   userName.name = "${userName.last}@gmail.com";
+  //   print(userName.name);
+  // }
+}
+
+class Student {
+  final int age;
+  final String name;
+
+  const Student(this.age, this.name);
+
+  @override
+  String toString() {
+    return "name = $name, age = $age";
+  }
+}
+
+class people {
+  int? age;
+  String? name;
+  int? phoneNumber;
+
+  void sleep() {
+    print("user is sleeping");
+  }
+
+  void work() {
+    print("user is working");
+  }
+
+  // people(int this.age, String this.name) { // sugar syntax
+  //   print("created!!");
+  // }
+
+  people({required int this.age, required String this.name});
+
+  people.myCustomConstructor(
+      {required int this.age,
+      required String this.name,
+      required int this.phoneNumber}) {
+    print("custom");
+  }
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return "name = $name, age = $age, phoneNumber = ${phoneNumber == null ? "not approved" : phoneNumber}";
+  }
 }
 
 String sayHello(String name) {
